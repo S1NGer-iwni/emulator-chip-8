@@ -1,29 +1,37 @@
-class chip8{
- public:
-    chip8();
-    ~chip8();
+#define TRUE 1
+#define FALSE 0
+#define MAXSTACK 16
 
-    bool drawFlag;
+void emulateCycle(void);
+void debugRender(void);
+int loadApplication(const char *filename);
 
-    void emulateCycle();
-    void debugRender();
-    bool loadApplication(const char * filename);
+void init(void);
 
-    unsigned char gfx[64 * 32];
-    unsigned char key[16];
+/*******************************
+	void push(unsigned short i);
+	unsigned short pop(void);
 
- private:
-    unsigned short opcode;
-    unsigned short pc;
-    unsigned short sp;
-    unsigned short I;
+*******************************/
 
-    unsigned char V[16];
-    unsigned short stack[16];
-    unsigned char memory[4096];
+typedef struct chip8 {
 
-    unsigned char delay_timer;
-    unsigned char sound_timer;
+	unsigned short pc;
+	unsigned short sp;
+	unsigned short opcode;
+	unsigned short I;
 
-    void init();
+	unsigned char memory[4096];
+	unsigned char V[16];
+	unsigned short stack[MAXSTACK];
+
+	unsigned char gfx[64 * 32];
+	unsigned char key[16];
+
+	unsigned char delay_timer;
+	unsigned char sound_timer;
+
+	unsigned short drawFlag;
+	unsigned short tos;
+
 };
