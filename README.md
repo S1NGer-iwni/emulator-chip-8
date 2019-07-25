@@ -12,3 +12,5 @@ http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter
 http://en.wikipedia.org/wiki/CHIP-8
 
 I rewrote this project in the programming language C. Check it!1!
+
+I advise you use SDL library or DirectX
